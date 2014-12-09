@@ -69,15 +69,10 @@ struct sys_state_s system_state;
 
 #ifdef CONFIG_ARCH_DMA
 static struct hrt_call serial_dma_call;
-<<<<<<< HEAD
 #endif
 int MuxFlag,MuxState;
 
 __EXPORT int mavstation_main(int argc, char *argv[]);
-=======
-int MuxFlag,MuxState;
-
->>>>>>> Added 60 second delay upon power up to switch Mavlink serial port.  Pressing and releasing the enter button will switch the MAVLink serial port.  It's state is indicated by the Blue LED, on=switched to Pi, Off=switched to stm32
 int
 mavstation_main(int argc, char *argv[])
 {
@@ -122,11 +117,7 @@ mavstation_main(int argc, char *argv[])
 	perf_counter_t loop_perf = perf_alloc(PC_INTERVAL, "loop");
 
 	struct mallinfo minfo = mallinfo();
-<<<<<<< HEAD
 	//up_udelay(6000000);
-=======
-	up_udelay(6000000);
->>>>>>> Added 60 second delay upon power up to switch Mavlink serial port.  Pressing and releasing the enter button will switch the MAVLink serial port.  It's state is indicated by the Blue LED, on=switched to Pi, Off=switched to stm32
 	debug("MEM: free %u, largest %u\n", minfo.mxordblk, minfo.fordblks);
 
 	/*
