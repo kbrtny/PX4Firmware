@@ -163,7 +163,6 @@ void i2c_slave_interface_tick(void) { }
  */
 static void 
 i2c_reset(void)
-void i2c_reset(void)
 {
 	rCR1 |= I2C_CR1_SWRST;
 	rCR1 = 0;
