@@ -55,7 +55,7 @@
 #include <nuttx/arch.h>
 
 #include <stm32.h>
-#include "mavstation_internal.h"
+#include "board_config.h"
 
 #include <arch/board/board.h>
 
@@ -116,34 +116,6 @@ __EXPORT void stm32_boardinitialize(void)
 	stm32_configgpio(GPIO_USB_PULLUP);
 	stm32_gpiowrite(GPIO_USB_PULLUP,false);
 
-	/* spektrum power enable is active high - disable it by default */
-	stm32_gpiowrite(GPIO_SPEKTRUM_PWR_EN, false);
-	stm32_configgpio(GPIO_SPEKTRUM_PWR_EN);
-
-	/* servo power enable is active low, and has a pull down resistor
-	 * to keep it low during boot (since it may power the whole board.)
-	*/
-	stm32_gpiowrite(GPIO_SERVO_PWR_EN, false);
-	stm32_configgpio(GPIO_SERVO_PWR_EN);
-
-	stm32_configgpio(GPIO_SERVO_FAULT_DETECT);
-
-	stm32_configgpio(GPIO_TIM_RSSI); /* xxx alternate function */
-	stm32_configgpio(GPIO_ADC_RSSI);
-	stm32_configgpio(GPIO_ADC_VSERVO);
-
-	stm32_configgpio(GPIO_SBUS_INPUT); /* xxx alternate function */
-
-	stm32_gpiowrite(GPIO_SBUS_OUTPUT, false);
-	stm32_configgpio(GPIO_SBUS_OUTPUT);
-	
-	/* sbus output enable is active low - disable it by default */
-	stm32_gpiowrite(GPIO_SBUS_OENABLE, true);
-	stm32_configgpio(GPIO_SBUS_OENABLE);
-
-
-	stm32_configgpio(GPIO_PPM); /* xxx alternate function */
-
 	stm32_gpiowrite(GPIO_PWM1, false);
 	stm32_configgpio(GPIO_PWM1);
 
@@ -155,18 +127,6 @@ __EXPORT void stm32_boardinitialize(void)
 
 	stm32_gpiowrite(GPIO_PWM4, false);
 	stm32_configgpio(GPIO_PWM4);
-
-	stm32_gpiowrite(GPIO_PWM5, false);
-	stm32_configgpio(GPIO_PWM5);
-
-	stm32_gpiowrite(GPIO_PWM6, false);
-	stm32_configgpio(GPIO_PWM6);
-
-	stm32_gpiowrite(GPIO_PWM7, false);
-	stm32_configgpio(GPIO_PWM7);
-
-	stm32_gpiowrite(GPIO_PWM8, false);
-	stm32_configgpio(GPIO_PWM8);
 
 	stm32_usbinitialize();
 
