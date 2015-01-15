@@ -21,4 +21,3 @@ define _B
 endef
 
 BUILTIN_COMMANDS := \
-    $(call _B, hello, , 512, hello_main)
