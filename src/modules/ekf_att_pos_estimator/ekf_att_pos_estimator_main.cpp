@@ -613,8 +613,11 @@ FixedwingEstimator::check_filter_state()
 			warn_index = max_warn_index;
 		}
 
-		warnx("reset: %s", feedback[warn_index]);
-		mavlink_log_critical(_mavlink_fd, "[ekf check] %s", feedback[warn_index]);
+		// Do not warn about accel offset if we have no position updates
+		if (!(warn_index == 5 && _ekf->staticMode)) {
+			warnx("reset: %s", feedback[warn_index]);
+			mavlink_log_critical(_mavlink_fd, "[ekf check] %s", feedback[warn_index]);
+		}
 	}
 
 	struct estimator_status_report rep;
@@ -1467,7 +1470,7 @@ FixedwingEstimator::task_main()
 							map_projection_reproject(&_pos_ref, _local_pos.x, _local_pos.y, &est_lat, &est_lon);
 							_global_pos.lat = est_lat;
 							_global_pos.lon = est_lon;
-							_global_pos.time_gps_usec = _gps.time_gps_usec;
+							_global_pos.time_utc_usec = _gps.time_utc_usec;
 							_global_pos.eph = _gps.eph;
 							_global_pos.epv = _gps.epv;
 						}
@@ -1557,7 +1560,7 @@ FixedwingEstimator::start()
 	_estimator_task = task_spawn_cmd("ekf_att_pos_estimator",
 					 SCHED_DEFAULT,
 					 SCHED_PRIORITY_MAX - 40,
-					 5000,
+					 7500,
 					 (main_t)&FixedwingEstimator::task_main_trampoline,
 					 nullptr);
 
