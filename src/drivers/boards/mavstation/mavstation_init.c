@@ -55,7 +55,11 @@
 #include <nuttx/arch.h>
 
 #include <stm32.h>
+<<<<<<< HEAD
 #include "board_config.h"
+=======
+#include "mavstation_internal.h"
+>>>>>>> c2b781bb5e2cefd898492fb9a636df81c3281e2b
 
 #include <arch/board/board.h>
 
