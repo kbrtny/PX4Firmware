@@ -10,6 +10,12 @@
 #include "appdebug.h"
 #include "slave_registers.h"
 
+#ifdef CONFIG_CPP_HAVE_VARARGS
+#  define message(...) lowsyslog(__VA_ARGS__)
+#else
+#  define message lowsyslog
+#endif
+
 static volatile uint32_t msg_counter;
 static volatile uint32_t last_msg_counter;
 static volatile uint8_t msg_next_out, msg_next_in;
@@ -46,9 +52,10 @@ void debug(const char *fmt, ...)
 	va_start(ap, fmt);
 	vsnprintf(buf, sizeof(buf), fmt, ap);
 	va_end(ap);
+	message("\n");
 
-	lowsyslog(buf);
-	lowsyslog("\n");
+	message(buf);
+	message("\n");
 }
 
 /*

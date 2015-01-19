@@ -28,3 +28,4 @@ BUILTIN_COMMANDS := \
     $(call _B, hello, , 512, hello_main) \
     $(call _B, sercon, , 1024,  sercon_main) \
 	$(call _B, serdis, , 1024,  serdis_main)
+	
