@@ -37,10 +37,17 @@
 
 CONFIGURED_APPS += examples/nsh
 #CONFIGURED_APPS += examples/mavstation
+<<<<<<< HEAD
 CONFIGURED_APPS += examples/hello
 
 CONFIGURED_APPS += system/readline
 CONFIGURED_APPS += nshlib
+=======
+#CONFIGURED_APPS += examples/hello
+
+#CONFIGURED_APPS += system/readline
+#CONFIGURED_APPS += nshlib
+>>>>>>> Added mavstation config
 CONFIGURED_APPS += reboot
 
 CONFIGURED_APPS += drivers/boards/mavstation
