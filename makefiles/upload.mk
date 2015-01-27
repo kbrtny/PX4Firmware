@@ -33,8 +33,7 @@ upload-serial-px4fmu-v2:	$(BUNDLE) $(UPLOADER)
 upload-serial-aerocore:
 	openocd -f $(PX4_BASE)/makefiles/gumstix-aerocore.cfg -c 'init; reset halt; flash write_image erase $(PX4_BASE)/../Bootloader/px4aerocore_bl.bin 0x08000000; flash write_image erase $(PX4_BASE)/Build/aerocore_default.build/firmware.bin 0x08004000; reset run; exit'
 
-
-upload-serial-mavstation_default:    $(BUNDLE) $(UPLOADER)
+upload-serial-mavstation:    $(BUNDLE) $(UPLOADER)
 	$(Q) $(PYTHON) -u $(UPLOADER) --port $(SERIAL_PORTS) $(BUNDLE)
 
 
