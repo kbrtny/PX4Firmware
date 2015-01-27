@@ -1631,6 +1631,8 @@ MPU6000::measure()
 		_register_wait--;
 		return;
 	}
+
+	perf_count(_good_transfers);
 	    
 
 	/*
