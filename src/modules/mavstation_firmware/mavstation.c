@@ -73,6 +73,7 @@ static struct hrt_call serial_dma_call;
 int MuxFlag,MuxState;
 
 __EXPORT int mavstation_main(int argc, char *argv[]);
+
 int
 mavstation_main(int argc, char *argv[])
 {
