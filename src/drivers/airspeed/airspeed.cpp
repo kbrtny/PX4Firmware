@@ -166,8 +166,9 @@ Airspeed::probe()
 	_retries = 4;
 	int ret = measure();
 
-        // drop back to 2 retries once initialised
-	_retries = 2;
+        // drop back to 1 retry once initialised
+	_retries = 1;
+	use _retries=1 for I2C retries once initialised
 	return ret;
 }
 
