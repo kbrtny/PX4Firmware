@@ -435,7 +435,7 @@ MavlinkReceiver::handle_message_hil_optical_flow(mavlink_message_t *msg)
 
 	/* Use distance value for range finder report */
 	struct range_finder_report r;
-	memset(&r, 0, sizeof(r));
+	memset(&r, 0, sizeof(f));
 
 	r.timestamp = hrt_absolute_time();
 	r.error_count = 0;

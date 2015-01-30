@@ -50,7 +50,6 @@
 #include <apps/nsh.h>
 #include <fcntl.h>
 #include <systemlib/err.h>
-#include <drivers/drv_hrt.h>
 
 #include <uORB/topics/actuator_armed.h>
 
@@ -67,11 +66,6 @@ nshterm_main(int argc, char *argv[])
     int fd = -1;
     int armed_fd = orb_subscribe(ORB_ID(actuator_armed));
     struct actuator_armed_s armed;
-
-    /* back off 800 ms to avoid running into the USB setup timing */
-    while (hrt_absolute_time() < 800U * 1000U) {
-        usleep(50000);
-    }
 
     /* try to bring up the console - stop doing so if the system gets armed */
     while (true) {
