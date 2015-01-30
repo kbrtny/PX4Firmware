@@ -161,10 +161,6 @@ mavstation_main(int argc, char *argv[])
 		}
 #endif
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bfe5ed7322ea1b88132ad9622e8d98f1975fc6ee
 		perf_end(interface_perf);
 
 		/* check for debug activity */

@@ -128,6 +128,19 @@ __EXPORT void stm32_boardinitialize(void)
 	stm32_gpiowrite(GPIO_PWM4, false);
 	stm32_configgpio(GPIO_PWM4);
 
+#if defined(CONFIG_HAVE_CXX) && defined(CONFIG_HAVE_CXXINITIALIZE)
+
+	/* run C++ ctors before we go any further */
+
+	up_cxxinitialize();
+
+#	if defined(CONFIG_EXAMPLES_NSH_CXXINITIALIZE)
+#  		error CONFIG_EXAMPLES_NSH_CXXINITIALIZE Must not be defined! Use CONFIG_HAVE_CXX and CONFIG_HAVE_CXXINITIALIZE.
+#	endif
+
+#else
+#  error platform is dependent on c++ both CONFIG_HAVE_CXX and CONFIG_HAVE_CXXINITIALIZE must be defined.
+#endif
 	stm32_usbinitialize();
 
 //	message("[boot] Successfully initialized mavstation gpios\n");

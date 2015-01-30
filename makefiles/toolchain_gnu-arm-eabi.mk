@@ -60,7 +60,7 @@ endif
 
 # XXX this is pulled pretty directly from the fmu Make.defs - needs cleanup
 
-MAXOPTIMIZATION		 ?= -O3
+MAXOPTIMIZATION		 ?= -Os
 
 # Base CPU flags for each of the supported architectures.
 #
@@ -86,7 +86,7 @@ ARCHCPUFLAGS_CORTEXM3	 = -mcpu=cortex-m3 \
 
 NUTTX_CONFIG_H=$(WORK_DIR)nuttx-export/include/nuttx/config.h
 define check_nuttx_config
-$(strip $(shell $(GREP) -q $1 $2;echo -n $$?;))
+$(strip $(shell $(GREP) -q $1 $2;echo $$?;))
 endef
 nuttx_config_true:="0"
 nuttx_config_2true:="0 0"
