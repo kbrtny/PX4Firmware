@@ -50,7 +50,7 @@ OBJDUMP			 = $(CROSSDEV)objdump
 
 # Check if the right version of the toolchain is available
 #
-CROSSDEV_VER_SUPPORTED	 = 4.7.4 4.7.5 4.7.6 4.8.4 4.9.3
+CROSSDEV_VER_SUPPORTED	 = 4.8.4 4.9.3
 CROSSDEV_VER_FOUND	 = $(shell $(CC) -dumpversion)
 
 ifeq (,$(findstring $(CROSSDEV_VER_FOUND), $(CROSSDEV_VER_SUPPORTED)))
@@ -86,7 +86,7 @@ ARCHCPUFLAGS_CORTEXM3	 = -mcpu=cortex-m3 \
 
 NUTTX_CONFIG_H=$(WORK_DIR)nuttx-export/include/nuttx/config.h
 define check_nuttx_config
-$(strip $(shell $(GREP) -q $1 $2;echo -n $$?;))
+$(strip $(shell $(GREP) -q $1 $2;echo $$?;))
 endef
 nuttx_config_true:="0"
 nuttx_config_2true:="0 0"
