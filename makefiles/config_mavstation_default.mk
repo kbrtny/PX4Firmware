@@ -14,7 +14,7 @@ MODULES		+= drivers/device
 MODULES		+= drivers/stm32
 MODULES		+= drivers/boards/mavstation
 MODULES		+= modules/mavstation_firmware
-MODULES		+= modules/uORB
+#MODULES		+= modules/uORB
 #MODULES		+= examples/px4_simple_app
 
 #MODULES		+= systemcmds/nshterm
