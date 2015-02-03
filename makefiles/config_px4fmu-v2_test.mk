@@ -26,14 +26,17 @@ MODULES		+= drivers/hmc5883
 MODULES		+= drivers/ms5611
 MODULES		+= drivers/pca8574
 MODULES		+= drivers/roboclaw
+MODULES		+= drivers/airspeed
+MODULES		+= drivers/ets_airspeed
+MODULES		+= drivers/meas_airspeed
 MODULES		+= systemcmds/perf
 MODULES		+= systemcmds/reboot
 MODULES		+= systemcmds/tests
 MODULES		+= systemcmds/nshterm
 MODULES		+= systemcmds/mtd
 MODULES		+= systemcmds/ver
-MODULES		+= systemcmds/param
 MODULES		+= systemcmds/top
+MODULES		+= modules/sensors
 
 #
 # Testing modules
